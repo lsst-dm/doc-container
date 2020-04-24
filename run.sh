@@ -16,7 +16,7 @@ fi
 TRAVIS=${TRAVIS:-false}
 
 if [ $TRAVIS=true ]; then
-  GIT_REF="travis"
+  GIT_REF="$TRAVIS_BRANCH"
 else
   GIT_REF=$(git rev-parse --abbrev-ref HEAD)
 fi
