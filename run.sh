@@ -14,6 +14,7 @@ fi
 
 
 TRAVIS=${TRAVIS:-false}
+TRAVIS_BRANCH=${TRAVIS_BRANCH:-""}
 
 if [ $TRAVIS=true ]; then
   GIT_REF="$TRAVIS_BRANCH"
