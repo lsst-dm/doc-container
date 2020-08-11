@@ -4,7 +4,7 @@
 
 set -euxo pipefail
 
-GIT_REF={GIT_REF:-}
+GIT_REF=${GIT_REF:-}
 
 ORIGIN=$(git --git-dir=/project/.git remote get-url origin)
 PRODUCT=$(basename -s .git $ORIGIN)
