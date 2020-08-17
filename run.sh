@@ -16,12 +16,6 @@ fi
 TRAVIS=${TRAVIS:-false}
 TRAVIS_BRANCH=${TRAVIS_BRANCH:-""}
 
-if [ $TRAVIS=true ]; then
-  GIT_REF="$TRAVIS_BRANCH"
-else
-  GIT_REF=$(git rev-parse --abbrev-ref HEAD)
-fi
-
 usage() {
     cat << EOD
 Usage: $(basename "$0") [options] path
@@ -52,6 +46,12 @@ fi
 
 PROJECT_DIR=$1
 shift
+
+if [ "$TRAVIS" = "true" ]; then
+  GIT_REF="$TRAVIS_BRANCH"
+else
+  GIT_REF=$(cd "$PROJECT_DIR" && git rev-parse --abbrev-ref HEAD)
+fi
 
 # strip trailing slash
 PROJECT_DIR=$(echo $PROJECT_DIR | sed 's%\(.*[^/]\)/*%\1%')
