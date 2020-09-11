@@ -33,7 +33,7 @@ EOD
 while getopts hp:u: c ; do
     case $c in
         h) usage ; exit 0 ;;
-        u) LTD_USER="$OPTARG" ;;
+        u) LTD_USERNAME="$OPTARG" ;;
         p) LTD_PASSWORD="$OPTARG" ;;
         \?) usage ; exit 2 ;;
     esac
@@ -62,7 +62,7 @@ IMAGE="qserv/doc:latest"
 docker run -i -v $PROJECT_DIR:/project \
     -e LTD_USERNAME=qserv \
     -e LTD_PASSWORD="$LTD_PASSWORD" \
-    -e LTD_USER="$LTD_USER" \
+    -e LTD_USERNAME="$LTD_USERNAME" \
     -e GIT_REF="$GIT_REF" \
     --user=$(id -u):$(id -g $USER) -- "$IMAGE" \
     bash -lc run.sh
