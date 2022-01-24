@@ -12,9 +12,7 @@ if [ -r "$DIR/env.sh" ]; then
   . $DIR/env.sh
 fi
 
-
-TRAVIS=${TRAVIS:-false}
-TRAVIS_BRANCH=${TRAVIS_BRANCH:-""}
+GITHUB_REF_NAME=${GITHUB_REF_NAME:-""}
 
 usage() {
     cat << EOD
@@ -48,8 +46,8 @@ fi
 PROJECT_DIR=$1
 shift
 
-if [ "$TRAVIS" = "true" ]; then
-  GIT_REF="$TRAVIS_BRANCH"
+if [ -z "$GITHUB_REF_NAME" ]; then
+  GIT_REF="$GITHUB_REF_NAME"
 else
   GIT_REF=$(cd "$PROJECT_DIR" && git rev-parse --abbrev-ref HEAD)
 fi
