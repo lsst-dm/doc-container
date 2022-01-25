@@ -46,7 +46,7 @@ fi
 PROJECT_DIR=$1
 shift
 
-if [ -z "$GITHUB_REF_NAME" ]; then
+if [ -n "$GITHUB_REF_NAME" ]; then
   GIT_REF="$GITHUB_REF_NAME"
 else
   GIT_REF=$(cd "$PROJECT_DIR" && git rev-parse --abbrev-ref HEAD)
