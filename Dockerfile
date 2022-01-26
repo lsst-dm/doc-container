@@ -1,4 +1,4 @@
-FROM python:3.10.2-bullseye
+FROM ubuntu:20.04
 
 # Provide newer git for newinstall and eupspkg
 #

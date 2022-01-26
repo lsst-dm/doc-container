@@ -4,7 +4,7 @@
 
 set -euxo pipefail
 
-cp /ltd/Makefile /project/ltd
+cp /ltd/Makefile /project/doc
 cd /project/doc
 make linkcheck
 make html

@@ -1,2 +1,2 @@
-documenteer
+documenteer==0.6.9
 lsst-sphinx-bootstrap-theme>=0.2.0,<0.3.0
