@@ -4,4 +4,5 @@
 
 set -euxo pipefail
 
-package-docs -d /project/doc/ build
+make linkcheck
+make html
